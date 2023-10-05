@@ -1,0 +1,25 @@
+.nav {
+  background-color: #272727;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  min-height: 66px;
+  text-align: center;
+}
+
+.nav__button {
+  color: #fff;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  transition: opacity 1.5s;
+}
+
+.nav__button:hover{
+  opacity: 0.7;
+}
+
+.nav_button_interval {
+  padding-left: 40px;
+}

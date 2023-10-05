@@ -1,0 +1,27 @@
+.promo{
+  display: block;
+  position: relative;
+  max-width: 100vw;
+  max-height: 100vh;
+  background-color: #073042;
+}
+
+.promo__logo {
+  display: block;
+  padding: 82px 0 122px;
+  margin: 0 auto;
+}
+
+.promo__name {
+  margin: auto;
+  max-width: 730px;
+  position: absolute;
+  top: 184px;
+  left: 0;
+  right: 0;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+  text-align: center;
+}

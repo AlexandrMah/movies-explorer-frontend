@@ -1,0 +1,20 @@
+.logo {
+  min-height: 38px;
+  min-width: 38px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  transition: opacity 1.5s;
+}
+
+.logo:hover{
+  opacity: 0.8;
+}
+
+.logo__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
