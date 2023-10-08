@@ -4,6 +4,7 @@
 }
 
 .about-project__name {
+  margin: 0;
   font-weight: 400;
   font-size: 22px;
   line-height: 27px;
@@ -16,8 +17,8 @@
   padding-top: 70px;
   display: grid;
   justify-content: space-between;
-  grid-template-columns: 550px 550px;
-  column-gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
   margin-bottom: 110px;
 }
 
@@ -28,10 +29,11 @@
 }
 
 .about-project__item_title {
-  padding-bottom: 26px;
+  font-weight: 400;
   font-size: 20px;
   line-height: 24px;
   letter-spacing: -0.04em;
+  padding-bottom: 26px;
 }
 
 .about-project__long {
@@ -47,14 +49,16 @@
   justify-content: center;
   align-items: center;
   margin: 0;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 14px;
   line-height: 17px;
+  color: #8B8B8B;
 }
 
 .about-project__time_color-green {
   min-width: 100%;
   min-height: 100%;
+  font-weight: 400;
   background-color: #3DDC84;
   color: #000;
 }
@@ -63,4 +67,81 @@
   background-color: #303030;
   min-width: 100%;
   min-height: 100%;
+  font-weight: 400;
+  color: #fff;
+}
+
+@media screen and (max-width: 800px){
+  .about-project {
+    padding: 90px 50px;
+  }
+
+  .about-project__info {
+    padding-top: 70px;
+    gap: 0 30px;
+    margin-bottom: 93px;
+  }
+
+  .about-project__item{
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .about-project__item_title {
+    padding-bottom: 22px;
+  }
+
+  .about-project__time {
+    font-weight: 400;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .about-project {
+    padding: 70px 50px;
+  }
+
+  .about-project__info {
+    padding-top: 60px;
+    grid-template-columns: 1fr;
+    gap: 56px;
+    margin-bottom: 60px;
+  }
+
+  .about-project__item_title {
+    padding-bottom: 16px;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .about-project {
+    padding: 70px 30px;
+  }
+
+  .about-project__name {
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 28px;
+  }
+
+  .about-project__item{
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .about-project__item_title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .about-project__time {
+    font-size: 11px;
+    line-height: 13px;
+  }
+}
+
+@media screen and (max-width: 360px){
+  .about-project {
+    padding: 70px 18px;
+  }
 }

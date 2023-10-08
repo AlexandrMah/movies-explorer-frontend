@@ -7,9 +7,3 @@
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-style: normal;
 }
-
-@media screen and (max-width: 650px){
-  .root {   
-    padding: 28px 0 0;
-  }
-}

@@ -23,3 +23,13 @@
 .nav_button_interval {
   padding-left: 40px;
 }
+
+@media screen and (max-width: 500px){
+  .nav__button {
+    font-size: 11px;
+  }
+
+  .nav_button_interval {
+    padding-left: 24px;
+  }
+}

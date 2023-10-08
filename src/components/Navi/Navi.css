@@ -23,12 +23,26 @@
   opacity: 0.7;
 }
 
+.navi__element_left {
+  margin-left: 16px;
+}
+
 .navi__element_dark {
   background-color: #202020;
 }
 
-.navi__element_left{
-  margin-left: 16px;
+.navi__element_text {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.navi__element_btn{
+  width: 76px;
+  height: 32px;
+  margin-left: 30px;
+  background-color: #3DDC84;
+  color: #000;
+  border-radius: 3px;
 }
 
 .navi__moovie {
@@ -55,6 +69,40 @@
   justify-content: center;
 }
 
+.navi__popup-menu{
+  transition: opacity 1.5s;
+}
+
+.navi__element:hover{
+  opacity: 0.8;
+}
+
 .navi__account-img_dark {
   background-color: #313131;
+}
+
+.navi__show {
+  display: none;
+}
+
+@media screen and (max-width: 800px){
+  .navi__show {
+    display: block;
+  }
+
+  .navi__hide {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .navi__element_text {
+    font-size: 10px;
+  }
+
+  .navi__element_btn{
+    width: 54px;
+    height: 26px;
+    margin-left: 14px;
+  }
 }

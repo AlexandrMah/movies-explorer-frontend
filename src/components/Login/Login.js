@@ -1,18 +1,14 @@
 import React from "react";
 import Logo from "../Logo/Logo";
-import { useNavigate } from 'react-router-dom';
 
-function Login() {
-
-  const navigate = useNavigate();
-
-  function signUp() {
-    navigate('/signup');
-  }
+function Login({ signUp, navigateToMain }) {
 
   return (
       <section className="register">
-        < Logo />        
+        < Logo 
+          signUp={signUp}
+          navigateToMain={navigateToMain}
+        />        
         <h2 className="register__title">Рады видеть!</h2>
         <form /*onSubmit = {handleSubmit}*/ action="/apply/" method="POST" name="#" className="register__form">
                     
@@ -48,7 +44,7 @@ function Login() {
             <span className="url-input-error register__input-error"></span>
           </label>
 
-          <button type="submit" className="register__btn register__btn_indent">Зарегистрироваться</button>
+          <button type="submit" className="register__btn register__btn_indent">Войти</button>
           <div className="register__input">
             <p className="register__input-title">Ещё не зарегистрированы?</p>
             <button onClick={signUp} type="button" className="register__btn-input">Регистрация</button>

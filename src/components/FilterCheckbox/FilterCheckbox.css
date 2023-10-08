@@ -1,0 +1,93 @@
+.box {
+  margin: 41px 70px 10px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 69px;
+  border-bottom: 1px solid #424242;
+}
+
+.box__switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+
+.box__switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.box__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #343434;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.box__slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .box__slider {
+  background-color: #2BE080;
+}
+
+input:focus + .box__slider {
+  box-shadow: 0 0 1px #343434;
+}
+
+input:checked + .box__slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.box__slider.box__round {
+  border-radius: 34px;
+}
+
+.box__slider.box__round:before {
+  border-radius: 50%;
+}
+
+.box__text {
+  margin: 0;
+  padding-left: 13px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+@media screen and (max-width: 800px){
+  .box {
+    margin: 41px 30px 10px;
+    padding-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .box {
+    margin: 41px 14px 10px;
+    padding-bottom: 50px;
+  }
+
+  .box__text {
+    font-size: 11px;
+  }
+}

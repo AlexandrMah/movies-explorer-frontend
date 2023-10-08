@@ -1,23 +1,59 @@
 import React from "react";
+import { useNavigate, useLocation } from 'react-router-dom';
+
 import Logo from "../Logo/Logo";
 import Navi from "../Navi/Navi";
-import { useLocation } from 'react-router-dom';
+import PopupWithForm from "../PopupMenu/PopupMenu";
 
-function Header() {
+function Header({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace }) {
+  console.log('111', isAddPlacePopupOpen)
+
+  const navigate = useNavigate();
   const location = useLocation();
+
+  function navigateToMovies() {
+    navigate('/movies');
+    closePopups();
+  }
+
+  function navigateToSavedMovies() {
+    navigate('/saved-movies');
+    closePopups();
+  }
+
+  function navigateToProfile() {
+    navigate('/profile');
+    closePopups();
+  }
 
   return (
     <div className="header">
-      {location.pathname === "/" && <header className ="header__theme">       
-        < Logo />
+      {location.pathname === "/" && <header className ="header__theme">
+        < Logo 
+          navigateToMain={navigateToMain}
+        />
         < Navi />
       </header>}
 
-      {(location.pathname === "/movies" || location.pathname === "/saved-movies" || location.pathname === "/profile") && <header className ="header__theme header__theme_dark">       
-        < Logo />
-        < Navi />
+      {(location.pathname === "/movies" || location.pathname === "/saved-movies" || location.pathname === "/profile") && <header className ="header__theme header__theme_dark">
+        < Logo 
+          navigateToMain={navigateToMain}
+        />
+        < Navi 
+          handleClickAddPlace ={handleClickAddPlace}
+        />
       </header>}
-    </div>    
+
+      <PopupWithForm
+        isOpen={isAddPlacePopupOpen}
+        onClose={closePopups}
+        navigateToMovies={navigateToMovies}
+        navigateToSavedMovies={navigateToSavedMovies}
+        navigateToProfile={navigateToProfile}
+        navigateToMain={navigateToMain}
+      />
+
+    </div>
   )
 }
 

@@ -1,18 +1,14 @@
 import React from "react";
 import Logo from "../Logo/Logo";
-import { useNavigate } from 'react-router-dom';
 
-function Register() {
-
-  const navigate = useNavigate();
-
-  function signIn() {
-    navigate('/signin');
-  }
+function Register({ signIn, navigateToMain }) {
 
   return (
       <section className="register">
-        < Logo />
+        < Logo 
+          signIn={signIn}
+          navigateToMain={navigateToMain}
+        />
         <h2 className="register__title">Добро пожаловать!</h2>
         <form /*onSubmit = {handleSubmit}*/ action="/apply/" method="POST" name="#" className="register__form">
           <label className="register__field">

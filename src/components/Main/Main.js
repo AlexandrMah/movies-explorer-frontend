@@ -8,11 +8,16 @@ import Portfolio from "../Portfolio/Portfolio";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-function Main() {
+function Main({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace  }) {
 
   return (
     <div className="main">
-      <Header />
+      <Header 
+        navigateToMain={navigateToMain}
+        closePopups={closePopups}
+        isAddPlacePopupOpen={isAddPlacePopupOpen}
+        handleClickAddPlace={handleClickAddPlace}
+      />
       <Promo />
       <NavTab />
       <AboutProject />

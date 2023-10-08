@@ -1,0 +1,32 @@
+.movies__more-btn {
+  margin: 50px 70px 80px;
+  width: calc(100% - 140px);
+  min-height: 36px;
+  background-color: #2F2F2F;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  transition: opacity 1.5s;
+}
+
+.movies__more-btn:hover{
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 800px){
+  .movies__more-btn {
+    margin: 50px 30px 80px;
+    width: calc(100% - 60px);
+  }
+}
+
+@media screen and (max-width: 360px){
+  .movies__more-btn {
+    margin: 50px 10px 80px;
+    width: calc(100% - 20px);
+  }
+}

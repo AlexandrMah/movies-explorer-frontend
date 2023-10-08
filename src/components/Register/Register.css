@@ -1,5 +1,5 @@
 .register {
-  width: 500px;
+  width: 396px;
   margin: 0 auto;
   padding: 70px 0;
   background-color: #202020;
@@ -8,6 +8,9 @@
 .register__title {
   margin: 0;
   padding: 40px 0;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
 }
 
 .register__form {
@@ -35,7 +38,7 @@
 }
 
 .register__element {
-  min-width: 381px;
+  min-width: 396px;
   min-height: 46px;
   background-color: #2F2F2F;
   border-radius: 8px;
@@ -97,3 +100,39 @@
   opacity: 0.7;
 }
 
+@media screen and (max-width: 768px){
+  .register {
+    padding: 232px 0;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 56px 0;
+  }
+
+  .register__title {
+    padding: 50px 0 80px;
+  }
+
+  .register__field {
+    max-width: 260px;
+  }
+
+  .register__element {
+    min-width: 260px;
+  }
+
+  .register__btn {
+    max-width: 260px;
+    margin-top: 157px;
+  }
+
+  .register__input{
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

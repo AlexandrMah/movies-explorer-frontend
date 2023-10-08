@@ -1,0 +1,49 @@
+.cards-movies {
+  margin: 70px 70px 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 364px);
+  row-gap: 37px;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1260px){
+  .cards-movies {
+    grid-template-columns: repeat(3, 339px);
+    row-gap: 30px;
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .cards-movies {
+    grid-template-columns: repeat(2, 364px);
+    row-gap: 37px;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .cards-movies {
+    margin: 70px 30px 30px;
+    grid-template-columns: repeat(2, 339px);
+    row-gap: 30px;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 750px){
+  .cards-movies {
+    margin: 70px 30px 30px;
+    grid-template-columns: repeat(1, 364px);
+    row-gap: 37px;
+    justify-content: center
+  }
+}
+
+@media screen and (max-width: 400px){
+  .cards-movies {
+    margin: 40px 10px 26px;
+    grid-template-columns: repeat(1, 300px);
+    row-gap: 14px;
+    justify-content: center
+  }
+}
