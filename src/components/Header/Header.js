@@ -6,7 +6,6 @@ import Navi from "../Navi/Navi";
 import PopupWithForm from "../PopupMenu/PopupMenu";
 
 function Header({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace }) {
-  console.log('111', isAddPlacePopupOpen)
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -27,22 +26,22 @@ function Header({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
   }
 
   return (
-    <div className="header">
-      {location.pathname === "/" && <header className ="header__theme">
+    <header className="header">
+      {location.pathname === "/" && <div className ="header__theme">
         < Logo 
           navigateToMain={navigateToMain}
         />
         < Navi />
-      </header>}
+      </div>}
 
-      {(location.pathname === "/movies" || location.pathname === "/saved-movies" || location.pathname === "/profile") && <header className ="header__theme header__theme_dark">
+      {(location.pathname === "/movies" || location.pathname === "/saved-movies" || location.pathname === "/profile") && <div className ="header__theme header__theme_dark">
         < Logo 
           navigateToMain={navigateToMain}
         />
         < Navi 
           handleClickAddPlace ={handleClickAddPlace}
         />
-      </header>}
+      </div>}
 
       <PopupWithForm
         isOpen={isAddPlacePopupOpen}
@@ -53,7 +52,7 @@ function Header({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
         navigateToMain={navigateToMain}
       />
 
-    </div>
+    </header>
   )
 }
 

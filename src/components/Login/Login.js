@@ -4,20 +4,22 @@ import Logo from "../Logo/Logo";
 function Login({ signUp, navigateToMain }) {
 
   return (
+    <main>
       <section className="register">
         < Logo 
           signUp={signUp}
           navigateToMain={navigateToMain}
         />        
-        <h2 className="register__title">Рады видеть!</h2>
+        <h1 className="register__title">Рады видеть!</h1>
         <form /*onSubmit = {handleSubmit}*/ action="/apply/" method="POST" name="#" className="register__form">
-                    
+
+          <p className="register__input-name">E-mail</p>
           <label className="register__field">
-            <p className="register__input-name">E-mail</p>
             <input 
               type="email" 
               placeholder="Email" 
-              value="email@email.ru"/*{email}*/
+              // value="email@email.ru"/*{email}*/
+              defaultValue="Email"
               name="email" 
               id="email-input" 
               className="register__element register__element_key_name" 
@@ -28,16 +30,17 @@ function Login({ signUp, navigateToMain }) {
             />
             <span className="name-input-error register__input-error"></span>
           </label>
-          
+
+          <p className="register__input-name">Пароль</p>
           <label className="register__field register__field_indent">
-            <p className="register__input-name">Пароль</p>
             <input 
               type="password" 
               placeholder="Пароль" 
-              value="12345"/*{password}*/
+              // value="12345"/*{password}*/
+              defaultValue="12345"
               name="password" 
               id="password-input" 
-              className="register__element register__element_key_img" 
+              className="register__element register__element_key_img"
               required
               // onChange = {evt => setPassword(evt.target.value)}
             />
@@ -49,8 +52,9 @@ function Login({ signUp, navigateToMain }) {
             <p className="register__input-title">Ещё не зарегистрированы?</p>
             <button onClick={signUp} type="button" className="register__btn-input">Регистрация</button>
           </div>
-        </form>     
+        </form>
       </section>
+    </main>
   )
 }
 

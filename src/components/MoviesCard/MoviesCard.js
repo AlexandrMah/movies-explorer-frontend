@@ -24,7 +24,7 @@ function MoviesCard() {
     <>
       <article className="element">
         <button /*onClick = {handleClick}*/ type='button' className="element__button-img">
-          <img src='https://w.forfun.com/fetch/4f/4fa04bf7e7f6032ea073e8abdd5d7dca.jpeg'/*{props.link}*/ alt='film'/*{props.name}*/ className="element__image"/>
+          <img src='https://w.forfun.com/fetch/4f/4fa04bf7e7f6032ea073e8abdd5d7dca.jpeg'/*{props.link}*/ alt='props.name'/*{props.name}*/ className="element__image"/>
         </button>                
         <div className="element__info">
           <h2 className="element__name">Страх и ненависть в Лас-Вегасе{/*props.name*/}</h2>

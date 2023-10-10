@@ -36,14 +36,10 @@
   opacity: 0.8;
 }
 
-.search-form__place{
-  position: relative;
-}
-
 .search-form__arrow{
   position: absolute;
-  top: 10px;
-  left: 15px;
+  top: 11px;
+  left: 21px;
 }
 
 @media screen and (max-width: 800px){

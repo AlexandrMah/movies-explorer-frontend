@@ -38,11 +38,16 @@
 
 .techs__picture {
   margin: 0 auto;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(7, minmax(84px, 90px));
   grid-template-rows: 60px;
   gap: 10px;
   justify-content: center;
+}
+
+.techs__item {
+  list-style-type: none;
 }
 
 .techs__element {
@@ -114,5 +119,9 @@
 @media screen and (max-width: 400px){
   .techs {
     padding: 70px 18px;
+  }
+
+  .techs__picture {
+    padding: 0 10px;
   }
 }

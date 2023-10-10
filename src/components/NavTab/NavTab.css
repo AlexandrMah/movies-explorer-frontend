@@ -1,11 +1,20 @@
 .nav {
   background-color: #272727;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   max-width: 100%;
   min-height: 66px;
   text-align: center;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.nav__item {
+  list-style-type: none;
 }
 
 .nav__button {
@@ -20,7 +29,7 @@
   opacity: 0.7;
 }
 
-.nav_button_interval {
+.nav__button_interval {
   padding-left: 40px;
 }
 
@@ -29,7 +38,7 @@
     font-size: 11px;
   }
 
-  .nav_button_interval {
+  .nav__button_interval {
     padding-left: 24px;
   }
 }

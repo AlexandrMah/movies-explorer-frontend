@@ -1,11 +1,13 @@
 .promo{
-  display: flex;
-  position: relative;
+  display: grid;
+  justify-content: center;
   background-color: #073042;
 }
 
 .promo__logo {
   display: block;
+  grid-row-start: 1;
+  grid-column-start: 2;
   width: 320px;
   max-height: 320px;
   padding: 82px 0 122px;
@@ -13,18 +15,16 @@
 }
 
 .promo__name {
-  margin: auto;
+  margin: 0;
+  padding: 184px 20px 0;
   max-width: 730px;
-  position: absolute;
-  top: 184px;
-  left: 0;
-  right: 0;
+  grid-row-start: 1;
+  grid-column-start: 2;
   font-weight: 400;
   font-size: 50px;
   line-height: 58px;
   letter-spacing: -0.04em;
   text-align: center;
-  padding: 0 20px;
 }
 
 @media screen and (max-width: 800px){
@@ -33,7 +33,7 @@
   }
 
   .promo__name {
-    top: 326px;
+    padding-top: 326px;
   }  
 }
 
@@ -51,8 +51,8 @@
   }
 
   .promo__name {
-    max-width: 580px;    
-    top: 320px;
+    max-width: 580px;
+    padding-top: 320px;
   }
 }
 
@@ -63,11 +63,10 @@
   }
 
   .promo__name {
-    max-width: 500px;    
-    top: 207px;
+    max-width: 500px;
     font-size: 31px;
     line-height: 39px;
-    padding: 0 10px;
+    padding: 207px 10px 0;
   }
 
 }

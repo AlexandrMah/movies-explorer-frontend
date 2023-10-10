@@ -11,6 +11,15 @@
   color: #8B8B8B;
 }
 
+.portfolio__links {
+  margin: 0;
+  padding: 0;
+}
+
+.portfolio__item {
+  list-style-type: none;
+}
+
 .portfolio__link {
   color: #fff;
   margin-bottom: 19px;
@@ -39,7 +48,7 @@
 
 @media screen and (max-width: 800px){
   .portfolio {
-    padding: 0 50px 106px;
+    padding: 0 50px 90px;
   }
 
   .portfolio__link-name {

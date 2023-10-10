@@ -2,8 +2,9 @@
   margin: 70px 70px 10px;
   display: grid;
   grid-template-columns: repeat(3, 364px);
-  row-gap: 37px;
+  gap: 37px 10px;
   justify-content: space-between;
+  justify-items: center;
 }
 
 @media screen and (max-width: 1260px){
@@ -44,6 +45,5 @@
     margin: 40px 10px 26px;
     grid-template-columns: repeat(1, 300px);
     row-gap: 14px;
-    justify-content: center
   }
 }

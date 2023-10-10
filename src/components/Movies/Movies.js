@@ -1,30 +1,34 @@
 import React from "react";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
-import SearchForm from "../SearchForm/SearchForm";
-import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
-import MoviesCardList from "../MoviesCardList/MoviesCardList";
+import Header from "./../Header/Header";
+import Footer from "./../Footer/Footer";
+import SearchForm from "./../SearchForm/SearchForm";
+import MoviesCardList from "./../MoviesCardList/MoviesCardList";
 
 function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace }) {
 
   return (
-    <div className="movies">
+    <>
       <Header 
         navigateToMain={navigateToMain}
         closePopups={closePopups}
         isAddPlacePopupOpen={isAddPlacePopupOpen}
         handleClickAddPlace={handleClickAddPlace}
       />
-      <SearchForm />
-      <FilterCheckbox />
-      <MoviesCardList />
+      <main>
+        <section className="movies">
+          
+          <SearchForm />
+          <MoviesCardList />
 
-      <button /*onClick = {handleClick}*/ type='button' className="movies__more-btn" aria-label='Показать еще'>
-        Ещё
-      </button>   
+          <button /*onClick = {handleClick}*/ type='button' className="movies__more-btn" aria-label='Показать еще'>
+            Ещё
+          </button>
 
+
+        </section>
+      </main>
       <Footer />
-    </div>
+    </>
   )
 }
 

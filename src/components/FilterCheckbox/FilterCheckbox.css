@@ -29,6 +29,11 @@
   background-color: #343434;
   -webkit-transition: .4s;
   transition: .4s;
+  transition: opacity 1.5s;
+}
+
+.box__slider:hover {
+  opacity: 0.7;
 }
 
 .box__slider:before {

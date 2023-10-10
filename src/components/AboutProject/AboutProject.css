@@ -22,13 +22,15 @@
   margin-bottom: 110px;
 }
 
-.about-project__item{
+.about-project__text{
+  margin: 0;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
 }
 
-.about-project__item_title {
+.about-project__title {
+  margin: 0;
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
@@ -82,12 +84,12 @@
     margin-bottom: 93px;
   }
 
-  .about-project__item{
+  .about-project__text{
     font-size: 12px;
     line-height: 18px;
   }
 
-  .about-project__item_title {
+  .about-project__title {
     padding-bottom: 22px;
   }
 
@@ -108,7 +110,7 @@
     margin-bottom: 60px;
   }
 
-  .about-project__item_title {
+  .about-project__title {
     padding-bottom: 16px;
   }
 }
@@ -124,12 +126,12 @@
     padding-bottom: 28px;
   }
 
-  .about-project__item{
+  .about-project__text{
     font-size: 11px;
     line-height: 16px;
   }
 
-  .about-project__item_title {
+  .about-project__title {
     font-size: 18px;
     line-height: 22px;
   }

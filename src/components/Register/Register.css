@@ -55,6 +55,10 @@
   border: 1px solid #8B8B8B;
 }
 
+.register__element:focus {
+  outline: none;
+}
+
 .register__btn {
   max-width: 396px;
   min-height: 45px;
@@ -112,6 +116,7 @@
     flex-direction: column;
     align-items: center;
     padding: 56px 0;
+    width: 260px;
   }
 
   .register__title {

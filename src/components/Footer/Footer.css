@@ -1,4 +1,6 @@
 .footer {
+  display: flex;
+  flex-direction: column;
   background-color: #202020;
   padding: 0 70px;
 }
@@ -24,7 +26,14 @@
   border-top: 1px solid #424242;
 }
 
+.footer__items {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
 .footer__item{
+  margin: 0;
   color: #fff;
   text-decoration: none;
   transition: opacity 1.5s;
@@ -34,7 +43,11 @@
   opacity: 0.7;
 }
 
-.footer__item_indent {
+.footer__point {
+  list-style-type: none;  
+}
+
+.footer__point_indent {
   margin-left: 20px;
 }
 
@@ -58,12 +71,11 @@
   }
 
   .footer__items {
-    display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .footer__item_indent {
+  .footer__point_indent {
     margin: 12px 0 30px;
   }
 }

@@ -11,21 +11,23 @@ import Footer from "../Footer/Footer";
 function Main({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace  }) {
 
   return (
-    <div className="main">
+    <>
       <Header 
         navigateToMain={navigateToMain}
         closePopups={closePopups}
         isAddPlacePopupOpen={isAddPlacePopupOpen}
         handleClickAddPlace={handleClickAddPlace}
       />
-      <Promo />
-      <NavTab />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
-      <Portfolio />
+      <main>
+        <Promo />
+        <NavTab />
+        <AboutProject />
+        <Techs />
+        <AboutMe />
+        <Portfolio />
+      </main>
       <Footer />
-    </div>
+    </>
   )
 }
 
