@@ -1,0 +1,44 @@
+.nav {
+  background-color: #272727;
+  max-width: 100%;
+  min-height: 66px;
+  text-align: center;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.nav__item {
+  list-style-type: none;
+}
+
+.nav__button {
+  color: #fff;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  transition: opacity 1.5s;
+}
+
+.nav__button:hover{
+  opacity: 0.7;
+}
+
+.nav__button_interval {
+  padding-left: 40px;
+}
+
+@media screen and (max-width: 500px){
+  .nav__button {
+    font-size: 11px;
+  }
+
+  .nav__button_interval {
+    padding-left: 24px;
+  }
+}

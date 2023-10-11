@@ -1,0 +1,144 @@
+.popup{
+  box-sizing: border-box;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: rgba(0, 0, 0, .5);
+  align-items: center;
+  justify-content: flex-end;
+  transition: height 0ms 400ms, opacity 400ms 0ms, z-index 2s;
+  opacity: 0;
+  z-index: -1;
+}
+
+.popup_opened{
+  opacity: 1;
+  z-index: 3;
+  height: 100%;
+  transition: height 0ms 0ms, opacity 600ms 0ms;
+}
+
+.popup__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 520px;
+  height: 100vh;
+  background-color: #202020;
+}
+
+.popup__btn {
+  background-color: #202020;
+  color: #fff;
+  border: none;
+  padding: 0 0 6px 0;
+  margin-bottom: 22px;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  cursor: pointer;
+  transition: opacity 1.5s;
+}
+
+.popup__btn:hover{
+  opacity: 0.7;
+}
+
+.popup__btn_line {
+  border-bottom: 2px solid #fff;
+}
+
+.popup__btn_inteval-top {
+  padding-top: 159px;
+}
+
+.popup__btn_inteval-bottom {
+  margin-bottom: 615px;
+}
+
+.popup__button {
+  position: absolute;
+  right: 0;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+  border: none;
+  margin: 20px 20px 0 0;
+  background-color: #202020;
+  cursor: pointer;
+  transition: opacity 1.5s;
+}
+
+.popup__button:hover{
+  opacity: 0.7;
+}
+
+.popup__close-btn {
+  width: 22px;
+  height: 22px;
+}
+
+.popup__element {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  border: none;
+  cursor: pointer;
+  background-color: #073042;
+  color: #FFFFFF;
+  transition: opacity 1.5s;
+}
+
+.popup__element:hover{
+  opacity: 0.7;
+}
+
+.popup__element_dark {
+  background-color: #202020;
+}
+
+.popup__element_account {
+  line-height: 12px;  
+  display: flex;
+  align-items: center;
+}
+
+.popup__text {
+  margin: 0;
+}
+
+.popup__img {
+  min-width: 26px;
+  min-height: 26px;
+  background-color: #0F4157;
+  border-radius: 50%;
+  margin-left: 7px;
+  object-fit: none;
+}
+
+.popup__img_dark {
+  background-color: #313131;
+}
+
+
+@media screen and (max-width: 500px){
+  .popup__btn {
+    padding-bottom: 7px;
+    margin-bottom: 15px;
+  }
+
+  .popup__btn_inteval-top {
+    padding-top: 144px;
+  }
+
+  .popup__btn_inteval-bottom {
+    margin-bottom: 437px;
+  }
+}

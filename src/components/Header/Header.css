@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+}
+
+.header__theme {
+  display: flex;
+  max-height: 74px;
+  min-width: calc(100% - 140px);
+  background-color: #073042;
+  padding: 18px 70px;
+}
+
+.header__theme_dark {
+  background-color: #202020;
+}
+
+@media screen and (max-width: 800px){
+  .header__theme {
+    min-width: calc(100% - 60px);
+    padding: 15px 30px;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .header__theme {
+    min-width: calc(100% - 28px);
+    padding: 13px 14px 16px;
+  }
+}

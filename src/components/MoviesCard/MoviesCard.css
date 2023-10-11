@@ -1,0 +1,183 @@
+.element {
+  max-width: 364px;
+  min-height: 281px;
+  background-color: #222222;
+  border-radius: 6px;
+}
+
+.element__button-img{
+  padding: 0;
+  border: none;
+  max-width: 100%;/*364px;*/
+  max-height: 203px;
+  cursor: pointer;
+}
+
+.element__image {
+  max-width: 100%;/*364px;*/
+  max-height: 203px;
+}
+
+.element__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 9px 24px 10px 16px;
+}
+
+.element__name {
+  margin: 0;
+  max-width: 290px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.element__likes{
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.element__like {
+  width: 14px;
+  height: 12px;
+  border: none;
+  background-color: #222222;
+  cursor: pointer;
+  transition: background-image 1.5s;
+}
+
+.element__like_active {
+  background-image: url(./../../images/red_heart.svg);
+}
+
+.element__like_disabled {
+  background-image: url(./../../images/heart.svg);
+}
+
+.element__del {
+  background-image: url(./../../images/cross.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  width: 7px;
+  height: 7px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 1.5s;
+}
+
+.element__info:hover .element__del {
+  opacity: 1;
+}
+
+.element__time {
+  margin: 0 0 0 16px;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: #8B8B8B;
+}
+
+@media screen and (max-width: 1260px){
+  .element {
+    max-width: 339px;
+    min-height: 262px;
+  }
+
+  .element__button-img{
+    max-width: 339px;
+    max-height: 190px;
+  }
+  
+  .element__image {
+    max-width: 339px;
+    max-height: 190px;
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .element {
+    max-width: 364px;
+    min-height: 281px;
+  }
+
+  .element__button-img{
+    max-width: 364px;
+    max-height: 203px;
+  }
+  
+  .element__image {
+    max-width: 364px;
+    max-height: 203px;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .element {
+    max-width: 339px;
+    min-height: 262px;
+  }
+
+  .element__button-img{
+    max-width: 339px;
+    max-height: 190px;
+  }
+  
+  .element__image {
+    max-width: 339px;
+    max-height: 190px;
+  }
+}
+
+@media screen and (max-width: 750px){
+  .element {
+    max-width: 364px;
+    min-height: 281px;
+  }
+
+  .element__button-img{
+    max-width: 364px;
+    max-height: 203px;
+  }
+  
+  .element__image {
+    max-width: 364px;
+    max-height: 203px;
+  }
+}
+
+@media screen and (max-width: 440px){
+  .element {
+    max-width: 300px;
+    min-height: 237px;
+  }
+
+  .element__button-img{
+    max-width: 300px;
+    max-height: 168px;
+  }
+  
+  .element__image {
+    max-width: 300px;
+    max-height: 168px;
+  }
+
+  .element__info {
+    margin: 7px 0 6px 14px;
+  }
+
+  .element__name {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .element__time {
+    margin: 0 0 0 14px;
+    font-size: 10px;
+    line-height: 12px;
+  }
+}
