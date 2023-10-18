@@ -1,4 +1,4 @@
-.cards-movies {
+.cards-movies__elements {
   margin: 70px 70px 10px;
   display: grid;
   grid-template-columns: repeat(3, 364px);
@@ -7,15 +7,53 @@
   justify-items: center;
 }
 
+.cards-movies__more-btn {
+  margin: 50px 70px 80px;
+  width: calc(100% - 140px);
+  min-height: 36px;
+  background-color: #2F2F2F;
+  border: none;
+  border-radius: 6px;
+  display: block;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  transition: opacity 1.5s;
+}
+
+.cards-movies__more-btn:hover{
+  opacity: 0.8;
+}
+
+.cards-movies__more-btn_show{
+  display: none;
+}
+
+.cards-movies__message {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 18px;
+  text-align: center;
+  display: none;
+  margin: 70px 0;
+  grid-column: 1 / span 2;
+}
+
+.cards-movies__message__show {
+  display: block;
+}
+
 @media screen and (max-width: 1260px){
-  .cards-movies {
+  .cards-movies__elements {
     grid-template-columns: repeat(3, 339px);
     row-gap: 30px;
   }
 }
 
 @media screen and (max-width: 1200px){
-  .cards-movies {
+  .cards-movies__elements {
     grid-template-columns: repeat(2, 364px);
     row-gap: 37px;
     justify-content: space-around;
@@ -23,7 +61,7 @@
 }
 
 @media screen and (max-width: 900px){
-  .cards-movies {
+  .cards-movies__elements {
     margin: 70px 30px 30px;
     grid-template-columns: repeat(2, 339px);
     row-gap: 30px;
@@ -31,8 +69,19 @@
   }
 }
 
+@media screen and (max-width: 800px){
+  .cards-movies__more-btn {
+    margin: 50px 30px 80px;
+    width: calc(100% - 60px);
+  }
+
+  .cards-movies__message {
+    margin: 70px 30px;
+  }
+}
+
 @media screen and (max-width: 750px){
-  .cards-movies {
+  .cards-movies__elements {
     margin: 70px 30px 30px;
     grid-template-columns: repeat(1, 364px);
     row-gap: 37px;
@@ -41,9 +90,22 @@
 }
 
 @media screen and (max-width: 400px){
-  .cards-movies {
+  .cards-movies__elements {
     margin: 40px 10px 26px;
     grid-template-columns: repeat(1, 300px);
     row-gap: 14px;
+  }
+
+  .cards-movies__message {
+    margin: 70px 14px;
+    font-size: 16px;
+    line-height: 14px;
+  }
+}
+
+@media screen and (max-width: 360px){
+  .cards-movies__more-btn {
+    margin: 50px 10px 80px;
+    width: calc(100% - 20px);
   }
 }

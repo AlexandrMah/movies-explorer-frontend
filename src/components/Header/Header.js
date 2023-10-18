@@ -4,8 +4,11 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import Logo from "../Logo/Logo";
 import Navi from "../Navi/Navi";
 import PopupWithForm from "../PopupMenu/PopupMenu";
+import { CurrentUserContext } from "./../../contexts/CurrentUserContext";
 
-function Header({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace }) {
+function Header({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace, isLoggedIn }) {
+
+  const currentUser = React.useContext(CurrentUserContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,7 +34,11 @@ function Header({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
         < Logo 
           navigateToMain={navigateToMain}
         />
-        < Navi />
+        < Navi 
+          handleClickAddPlace ={handleClickAddPlace}
+          userData={currentUser}
+          isLoggedIn={isLoggedIn}
+        />
       </div>}
 
       {(location.pathname === "/movies" || location.pathname === "/saved-movies" || location.pathname === "/profile") && <div className ="header__theme header__theme_dark">
@@ -40,6 +47,8 @@ function Header({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
         />
         < Navi 
           handleClickAddPlace ={handleClickAddPlace}
+          userData={currentUser}
+          isLoggedIn={isLoggedIn}
         />
       </div>}
 
