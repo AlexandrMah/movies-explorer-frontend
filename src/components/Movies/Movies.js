@@ -5,7 +5,7 @@ import SearchForm from "./../SearchForm/SearchForm";
 import MoviesCardList from "./../MoviesCardList/MoviesCardList";
 import * as moviesApi from './../../utils/MoviesApi';
 
-function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace, cardsMovies, handleAddMovie, handleDelMovie, chengeCheckbox, onClickSearch, filterStatus, setFilterStatus, getListMoviesFilter }) {
+function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace, cardsMovies, handleAddMovie, handleDelMovie, filterStatus, setFilterStatus, getListMoviesFilter }) {
 
   const [cardsCount, setCardsCount] = React.useState(0);
   const [columnCount, setColumnCount] = React.useState(0);
@@ -34,7 +34,7 @@ function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
       localStorage.setItem('moviesFilter', JSON.stringify(result));
       setCurrentPage(0)
     }
-  }, [checked, filterParametr])
+  }, [checked, filterParametr, getListMoviesFilter])
 
   // //Переключение и сохранение состояния чекбокса
   function chengeCheckbox(e) {
@@ -68,7 +68,7 @@ function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
       localStorage.setItem('filterParametr', filterParametr);
       setCurrentPage(0)
     }
-  }, [checked, filterParametr, movies])
+  }, [checked, filterParametr, movies, getListMoviesFilter])
   
   //Отображение количесва карточек(screenResolution)
   React.useEffect(() => {

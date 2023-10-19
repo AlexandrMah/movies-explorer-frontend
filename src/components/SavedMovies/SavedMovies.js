@@ -4,14 +4,14 @@ import Footer from "../Footer/Footer";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
-function SavedMovies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace, cardsMovies, handleDelMovie, chengeCheckbox, filterStatus, onClickSearch, getListMoviesFilter }) {
+function SavedMovies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace, cardsMovies, handleDelMovie, filterStatus, getListMoviesFilter }) {
   //Параметр фильтрации
   const [filterParametr, setFilterParametr] = React.useState('');
   /*--Список сохраненных фильмов--*/
   const [cardsMoviesFilter, setCardsMoviesFilter] = React.useState([]);
 
   //Чекбокс, состояние
-  const statusCheckbox = localStorage.getItem('checked') === 'on' ? true : false;
+  // const statusCheckbox = localStorage.getItem('checked') === 'on' ? true : false;
   const [checked, setChecked] = React.useState(false);
 
   React.useEffect(() => {
@@ -38,7 +38,7 @@ function SavedMovies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleC
     const result = getListMoviesFilter(cardsMovies, checked, filterParametr)
     setCardsMoviesFilter(result)
     localStorage.setItem('listMoviesFilter', JSON.stringify(result));
-  }, [checked, filterParametr, cardsMovies])
+  }, [checked, filterParametr, cardsMovies, getListMoviesFilter])
 
   return (
     <>

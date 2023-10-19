@@ -10,7 +10,7 @@ function Register({ signIn, navigateToMain, onRegister }) {
   //Отправка данных при регистрации
   function handleSubmit(e) {
     e.preventDefault();
-    onRegister(values.name, values.email, values.password)
+    onRegister({ name: values.name, email: values.email, password: values.password})
   };
 
   const buttonRegister = `register__btn ${!isValid && 'register__btn_inactive'}`;
@@ -23,7 +23,7 @@ function Register({ signIn, navigateToMain, onRegister }) {
           navigateToMain={navigateToMain}
         />
         <h1 className="register__title">Добро пожаловать!</h1>
-        <form onSubmit = {handleSubmit} action="/apply/" method="POST" name="#" className="register__form">
+        <form onSubmit = {handleSubmit} action="/apply/" method="POST" autoComplete="on" name="#" className="register__form">
           <p className="register__input-name">Имя</p>
           <label className="register__field">            
             <input 
@@ -56,7 +56,7 @@ function Register({ signIn, navigateToMain, onRegister }) {
               className="register__element register__element_key_name" 
               required 
               minLength="2" 
-              maxLength="30"
+              maxLength="30"              
               pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
               // onChange = {evt => setEmail(evt.target.value)}
               onChange = { handleChange }

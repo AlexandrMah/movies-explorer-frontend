@@ -5,11 +5,9 @@ import { useFormValidation } from "../../hooks/useFormValidation";
 
 function Profile({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace, signUserOut, handleUpdateUser }) {
   const currentUser = React.useContext(CurrentUserContext);
-  const {values, errors, isValid, setValues, handleChange, setIsValid} = useFormValidation();
+  const {values, errors, setValues, handleChange, setIsValid} = useFormValidation();
   
   const [saveInfo, setSaveInfo] = React.useState(false);
-  const [name, setName] = React.useState('');
-  const [email, setEmail] = React.useState('');
   const [inputActive, setInputActive] = React.useState(true);
   const [createInfo, setCreateInfo] = React.useState(false);
 
@@ -18,7 +16,7 @@ function Profile({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClick
       name: currentUser.name,
       email: currentUser.email,
     })
-  }, [currentUser])
+  }, [currentUser, setValues])
 
   React.useEffect(() => {
     if (currentUser.name === values.name && currentUser.email === values.email) {

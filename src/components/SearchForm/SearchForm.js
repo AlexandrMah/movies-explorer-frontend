@@ -14,7 +14,7 @@ function SearchForm({ chengeCheckbox, onClickSearch, checked }) {
 
   return (
       <section className="search-form">
-        <form onSubmit = {handleSubmit} action="/apply/" method="POST" name="#" className="search-form__form">
+        <form onSubmit = {handleSubmit} action="/apply/" autoComplete="on" method="POST" name="#" className="search-form__form">
           <div className="search-form__box">
             <label className="search-form__field">
               <input 
@@ -26,7 +26,7 @@ function SearchForm({ chengeCheckbox, onClickSearch, checked }) {
                 className="search-form__element search-form__element_key_name" 
                 required 
                 minLength="2" 
-                maxLength="40"
+                maxLength="40"                
                 // onChange = {evt => setFilmRequest(evt.target.value)}
                 onChange = { handleChange }
               />            

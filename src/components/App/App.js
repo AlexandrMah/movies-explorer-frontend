@@ -54,10 +54,8 @@ function App() {
 
   // Проверка токена
   React.useEffect(() => {
-    checkToken();
-  }, [])
-
-  const checkToken = () => {
+    // checkToken();
+    // const checkToken = () => {
     const jwt = localStorage.getItem("jwt");
     if (jwt === null){
       return
@@ -74,7 +72,27 @@ function App() {
       console.error(err)
       setLoggedIn(false)
     })
-  }
+    // }
+  }, [location.pathname, navigate])
+
+  // const checkToken = () => {
+  //   const jwt = localStorage.getItem("jwt");
+  //   if (jwt === null){
+  //     return
+  //   }
+  //   mainApi.checkToken(jwt)
+  //   .then((data) => {
+  //     if(!data) {
+  //       return
+  //     }
+  //     setLoggedIn(true);
+  //     navigate(location.pathname);
+  //   })
+  //   .catch((err) => {
+  //     console.error(err)
+  //     setLoggedIn(false)
+  //   })
+  // }
 
   //авторизация пользователя
   const onLogin = (email, password) => {

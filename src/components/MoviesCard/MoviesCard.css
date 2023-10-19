@@ -140,6 +140,10 @@
 }
 
 @media screen and (max-width: 750px){
+  .element__del {
+    opacity: 1;
+  }
+
   .element {
     max-width: 364px;
     min-height: 281px;

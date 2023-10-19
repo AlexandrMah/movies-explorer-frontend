@@ -1,8 +1,8 @@
-// export const BASE_URL = 'https://alexmah.movies.api.nomoredomainsrocks.ru';
-export const BASE_URL = 'http://localhost:3001';
+export const BASE_URL = 'https://alexmah.movies.api.nomoredomainsrocks.ru';
+// export const BASE_URL = 'http://localhost:3001';
 
 //регистрация
-export const registers = (name, email, password) => {
+export const registers = ({ name, email, password }) => {
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
     headers: {

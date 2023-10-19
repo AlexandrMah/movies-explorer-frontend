@@ -22,7 +22,7 @@ function Login({ signUp, navigateToMain, onLogin }) {
           navigateToMain={navigateToMain}
         />        
         <h1 className="register__title">Рады видеть!</h1>
-        <form onSubmit = {handleSubmit} action="/apply/" method="POST" name="#" className="register__form">
+        <form onSubmit = {handleSubmit} action="/apply/" method="POST" name="#" autoComplete="on" className="register__form">
 
           <p className="register__input-name">E-mail</p>
           <label className="register__field">
