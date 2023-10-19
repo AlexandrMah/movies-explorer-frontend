@@ -6,3 +6,4 @@ https://www.figma.com/file/6FMWkB94wE7KTkcCgUXtnC/%D0%94%D0%B8%D0%BF%D0%BB%D0%BE
 ## Название макета: Dark-3
 
 ссылка на сайт: https://alexmah.movies.nomoredomainsrocks.ru/
+ссыла на pull request: https://github.com/AlexandrMah/movies-explorer-frontend/pull/2
