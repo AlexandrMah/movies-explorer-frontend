@@ -8,7 +8,7 @@ import Portfolio from "../Portfolio/Portfolio";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-function Main({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace  }) {
+function Main({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace, isLoggedIn }) {
 
   return (
     <>
@@ -17,6 +17,7 @@ function Main({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAdd
         closePopups={closePopups}
         isAddPlacePopupOpen={isAddPlacePopupOpen}
         handleClickAddPlace={handleClickAddPlace}
+        isLoggedIn={isLoggedIn}
       />
       <main>
         <Promo />

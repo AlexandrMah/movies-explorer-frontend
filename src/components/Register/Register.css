@@ -21,7 +21,8 @@
 
 .register__field {
   max-width: 396px;
-  padding-bottom: 20px;
+  padding-bottom: 22px;
+  position: relative;
 }
 
 .register__field_indent {
@@ -79,6 +80,11 @@
   margin-top: 157px;
 }
 
+.register__btn_inactive{
+  background-color: #F8F8F8;
+  color: #C2C2C2;
+}
+
 .register__input{
   display: flex;
   justify-content: center;
@@ -103,6 +109,25 @@
 .register__btn-input:hover{
   opacity: 0.7;
 }
+
+/*---ошибки---*/
+.register__input-error{
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 11px;
+  color: #FF4062;
+  position: absolute;
+  top: 46px;
+  left: 0;
+}
+
+.register__input-error_center{
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+/*------------*/
 
 @media screen and (max-width: 768px){
   .register {
@@ -139,5 +164,10 @@
   .register__input{
     font-size: 12px;
     line-height: 15px;
+  }
+
+  .register__input-error{
+    font-size: 8px;
+    line-height: 10px;
   }
 }

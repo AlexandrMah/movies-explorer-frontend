@@ -8,14 +8,20 @@
 .element__button-img{
   padding: 0;
   border: none;
-  max-width: 100%;/*364px;*/
-  max-height: 203px;
+  width: 364px;
+  height: 203px;
   cursor: pointer;
+  transition: opacity 1.5s;
+}
+
+.element__button-img:hover {
+  opacity: 0.7;
 }
 
 .element__image {
-  max-width: 100%;/*364px;*/
-  max-height: 203px;
+  width: 100%;/*364px;*/
+  height: 203px;
+  object-fit: cover;
 }
 
 .element__info {
@@ -89,12 +95,12 @@
   }
 
   .element__button-img{
-    max-width: 339px;
+    width: 339px;
     max-height: 190px;
   }
   
   .element__image {
-    max-width: 339px;
+    width: 339px;
     max-height: 190px;
   }
 }
@@ -106,13 +112,13 @@
   }
 
   .element__button-img{
-    max-width: 364px;
-    max-height: 203px;
+    width: 364px;
+    height: 203px;
   }
   
   .element__image {
-    max-width: 364px;
-    max-height: 203px;
+    width: 364px;
+    height: 203px;
   }
 }
 
@@ -123,13 +129,13 @@
   }
 
   .element__button-img{
-    max-width: 339px;
-    max-height: 190px;
+    width: 339px;
+    height: 190px;
   }
   
   .element__image {
-    max-width: 339px;
-    max-height: 190px;
+    width: 339px;
+    height: 190px;
   }
 }
 
@@ -140,13 +146,13 @@
   }
 
   .element__button-img{
-    max-width: 364px;
-    max-height: 203px;
+    width: 364px;
+    height: 203px;
   }
   
   .element__image {
-    max-width: 364px;
-    max-height: 203px;
+    width: 364px;
+    height: 203px;
   }
 }
 
@@ -157,13 +163,13 @@
   }
 
   .element__button-img{
-    max-width: 300px;
-    max-height: 168px;
+    width: 300px;
+    height: 168px;
   }
   
   .element__image {
-    max-width: 300px;
-    max-height: 168px;
+    width: 300px;
+    height: 168px;
   }
 
   .element__info {

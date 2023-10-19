@@ -3,9 +3,13 @@
   position: relative;
 }
 
+.search-form__box{
+  position: relative;
+}
+
 .search-form__element {
   width: 100%;
-  min-height: 46px;
+  min-height: 46px;  
   border-radius: 40px;
   border: none;
   background-color: #2F2F2F;
