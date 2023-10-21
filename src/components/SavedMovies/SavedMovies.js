@@ -12,15 +12,22 @@ function SavedMovies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleC
 
   //Чекбокс, состояние
   // const statusCheckbox = localStorage.getItem('checked') === 'on' ? true : false;
-  const [checked, setChecked] = React.useState(false);
+  // const [checked, setChecked] = React.useState(false);
+  const [checkedSavedMovies, setCheckedSavedMovies] = React.useState(false);
 
   React.useEffect(() => {
-    if (localStorage.getItem('checked')) setChecked(localStorage.getItem('checked'))
+    if (localStorage.getItem('checkedSavedMovies') === null) localStorage.setItem('checkedSavedMovies', 'off');
+    if (localStorage.getItem('checkedSavedMovies')) setCheckedSavedMovies(localStorage.getItem('checkedSavedMovies'))
+    // if (localStorage.getItem('checked')) setChecked(localStorage.getItem('checked'))
   }, [])
 
+
+
   function chengeCheckbox(e) {
-    setChecked(e.target.value);
-    localStorage.setItem('checked', e.target.value);
+    // setChecked(e.target.value);
+    // localStorage.setItem('checked', e.target.value);
+    setCheckedSavedMovies(e.target.value);
+    localStorage.setItem('checkedSavedMovies', e.target.value);
  }
 
   function onClickSearch(value){
@@ -35,10 +42,10 @@ function SavedMovies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleC
 
   //Фильтрация сохраненных фильмов
   React.useEffect(() => {
-    const result = getListMoviesFilter(cardsMovies, checked, filterParametr)
+    const result = getListMoviesFilter(cardsMovies, /*checked*/checkedSavedMovies, filterParametr)
     setCardsMoviesFilter(result)
     localStorage.setItem('listMoviesFilter', JSON.stringify(result));
-  }, [checked, filterParametr, cardsMovies, getListMoviesFilter])
+  }, [/*checked*/ checkedSavedMovies, filterParametr, cardsMovies, getListMoviesFilter])
 
   return (
     <>
@@ -54,7 +61,8 @@ function SavedMovies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleC
           <SearchForm 
             chengeCheckbox={chengeCheckbox}
             onClickSearch={onClickSearch}
-            checked={checked}
+            // checked={checked}
+            checked={checkedSavedMovies}
           />
           <MoviesCardList 
             cardsMovies={cardsMoviesFilter}//{cardsMovies}

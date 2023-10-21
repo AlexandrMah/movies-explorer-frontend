@@ -2,7 +2,7 @@ import React from "react";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import { useLocation } from 'react-router-dom';
 
-function MoviesCardList({ movies, cardsMovies, handleAddMovie, handleDelMovie, filterStatus, addMovies, lengthMovies }) {
+function MoviesCardList({ movies, cardsMovies, handleAddMovie, handleDelMovie, filterStatus, addMovies, lengthMovies, filmStatus }) {
   const location = useLocation();
 
   //создание списка сохраненных фильмов
@@ -32,13 +32,13 @@ function MoviesCardList({ movies, cardsMovies, handleAddMovie, handleDelMovie, f
   }
 
   function isDownloadOption(){
-    if (movies.length === 0 && !filterStatus){
+    if (!filterStatus){
       return <p className="cards-movies__message cards-movies__message__show">Введите ключевое слово для поиска</p>
     }
-    else if ((movies.length === 0 && filterStatus)){
+    else if (!filmStatus){
       return <p className="cards-movies__message cards-movies__message__show">Ничего не найдено, повторите запрос</p>
     }
-    else if (movies.length !== 0 && filterStatus){
+    else if (filmStatus){
       return getMovie()
     }
     else {

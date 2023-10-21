@@ -73,7 +73,7 @@ function App() {
       setLoggedIn(false)
     })
     // }
-  }, [location.pathname, navigate])
+  }, [/*location.pathname, navigate*/])
 
   // const checkToken = () => {
   //   const jwt = localStorage.getItem("jwt");
@@ -168,12 +168,14 @@ function App() {
 
   //Удаление фильма
   function handleDelMovie(data){
-
+    setIsLoading(true)
     mainApi.deleteMovie(data._id)
       .then((newMovies) => {
         setCardsMovies((state) => state.filter((c) => c._id !== data._id ));
+        setIsLoading(false)
       })
       .catch(err => {
+        setIsLoading(false)
         console.log(err)
       })
   }
@@ -184,6 +186,7 @@ function App() {
     return movies.filter((data) => data.duration < 40)
   }
 
+  //функция фильтрации фильмов
   function getListMoviesFilter( list, checked, filterParametr) { 
     setIsLoading(true)
 
@@ -202,7 +205,6 @@ function App() {
   }  
 
   /*-----*/
-
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
 
   function handleClickAddPlace(){

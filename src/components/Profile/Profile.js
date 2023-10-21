@@ -5,7 +5,7 @@ import { useFormValidation } from "../../hooks/useFormValidation";
 
 function Profile({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace, signUserOut, handleUpdateUser }) {
   const currentUser = React.useContext(CurrentUserContext);
-  const {values, errors, setValues, handleChange, setIsValid} = useFormValidation();
+  const {values, errors, isValid, setValues, handleChange, setIsValid} = useFormValidation();
   
   const [saveInfo, setSaveInfo] = React.useState(false);
   const [inputActive, setInputActive] = React.useState(true);
@@ -19,7 +19,7 @@ function Profile({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClick
   }, [currentUser, setValues])
 
   React.useEffect(() => {
-    if (currentUser.name === values.name && currentUser.email === values.email) {
+    if (!isValid || (currentUser.name === values.name && currentUser.email === values.email)) {
       setCreateInfo(true);
     } else {
       setCreateInfo(false);
@@ -28,7 +28,7 @@ function Profile({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClick
 
 
   function editStatusProfileOnSave(){
-     setSaveInfo(true);
+    setSaveInfo(true);
     setInputActive(false);
   }
 
@@ -44,7 +44,7 @@ function Profile({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClick
   );
 
   const saveProfileOn = ( 
-    `profile__btn-save ${saveInfo && 'profile__btn-save_active'} ${!saveInfo && 'profile__btn-save_disabled'} ${!createInfo && 'profile__btn-save_create-info'}` 
+    `profile__btn-save ${!isValid && saveInfo && 'profile__btn-save_active'} ${isValid && !saveInfo && 'profile__btn-save_disabled'} ${isValid && !createInfo && 'profile__btn-save_create-info'}` 
   );
 
   return (
@@ -72,7 +72,7 @@ function Profile({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClick
                   className="profile__element profile__element_key_name" 
                   required 
                   minLength="2" 
-                  maxLength="40"
+                  maxLength="30"
                   pattern="[a-zA-Zа-яёА-ЯЁ\s\-]+"
                   onChange = {handleChange}/*{evt => setName(evt.target.value)}*/
                   disabled={inputActive}
@@ -95,7 +95,7 @@ function Profile({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClick
                   required 
                   minLength="2" 
                   maxLength="30"
-                  pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+                  pattern="^[a-zA-Z0-9+_.\-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,4}$"/*"^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"*/
                   onChange = {handleChange} /*{evt => setEmail(evt.target.value)}*/
                   disabled={inputActive}
                 />

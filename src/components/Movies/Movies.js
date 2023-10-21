@@ -4,6 +4,7 @@ import Footer from "./../Footer/Footer";
 import SearchForm from "./../SearchForm/SearchForm";
 import MoviesCardList from "./../MoviesCardList/MoviesCardList";
 import * as moviesApi from './../../utils/MoviesApi';
+import Preloader from "./../Preloader/Preloader"
 
 function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace, cardsMovies, handleAddMovie, handleDelMovie, filterStatus, setFilterStatus, getListMoviesFilter }) {
 
@@ -15,10 +16,13 @@ function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
    /*---Список фильмов после фильтра----*/
   const [moviesFilter, setMoviesFilter] = React.useState([]);
   //Параметр фильтрации
-  const [filterParametr, setFilterParametr] = React.useState(''); 
-
+  const [filterParametr, setFilterParametr] = React.useState('');
   //Чекбокс, состояние 
   const [checked, setChecked] = React.useState('');
+  //Контроль прелоадера
+  const [isLoading, setIsLoading] = React.useState(false);
+    //Контроль, были ли найдены фильмы
+    const [filmStatus, setFilmStatus] = React.useState(false);
 
   React.useEffect(() => {
     if (localStorage.getItem('checked') === null) localStorage.setItem('checked', 'off');
@@ -26,6 +30,7 @@ function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
     if (localStorage.getItem('movies') === null) localStorage.setItem('movies', JSON.stringify([]));
   }, [])
   
+  //Проверка при перезагрузке странице есть ли в localStorage фильмы и фильтрация, если есть, то информация загружаеься с их учетом
   React.useEffect(() => {    
     const list = JSON.parse(localStorage.getItem('movies'))
     if (list && !filterParametr) {
@@ -33,6 +38,7 @@ function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
       setMoviesFilter(result)
       localStorage.setItem('moviesFilter', JSON.stringify(result));
       setCurrentPage(0)
+      getInfoMovieSearch (result)
     }
   }, [checked, filterParametr, getListMoviesFilter])
 
@@ -50,23 +56,37 @@ function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
 
     //загрузка фильмов с сайта, если они еще не загружены
     if (!movies.length){
+      setIsLoading(true)
       moviesApi.getMovies()
         .then((data) => {
           localStorage.setItem('movies', JSON.stringify(data));
           setMovies(data);
-        })
-        .catch(err => console.log(err));
-    }    
+          setIsLoading(false)
+        }) 
+        .catch(err => {
+          console.log(err);
+          setIsLoading(false)
+        });
+    }     
+  }
+
+  //устанавливаем значение найдены ли фильмы
+  function getInfoMovieSearch (list) {
+    list.length === 0 ? setFilmStatus(false) : setFilmStatus(true);
   }
 
   //Фильтрация фильмов
   React.useEffect(() => {
+    if (!movies){
+      return
+    }
     if (filterParametr){
       const result = getListMoviesFilter(movies, checked, filterParametr)
       setMoviesFilter(result)
       localStorage.setItem('moviesFilter', JSON.stringify(result));
       localStorage.setItem('filterParametr', filterParametr);
       setCurrentPage(0)
+      getInfoMovieSearch (result)
     }
   }, [checked, filterParametr, movies, getListMoviesFilter])
   
@@ -127,16 +147,19 @@ function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
             onClickSearch={onClickSearch}
             checked={checked}
           />
-
-          <MoviesCardList 
-            movies={visibleListMovies}
-            cardsMovies={cardsMovies}
-            handleAddMovie={handleAddMovie}
-            handleDelMovie={handleDelMovie}
-            filterStatus={filterStatus}
-            addMovies={addMovies}
-            lengthMovies={moviesFilter.length}
-          />
+          {isLoading ? (
+            <Preloader />
+          ) : (
+            <MoviesCardList 
+              movies={visibleListMovies}
+              cardsMovies={cardsMovies}
+              handleAddMovie={handleAddMovie}
+              handleDelMovie={handleDelMovie}
+              filterStatus={filterStatus}
+              addMovies={addMovies}
+              lengthMovies={moviesFilter.length}
+              filmStatus={filmStatus}
+            />)}
 
         </section>
       </main>

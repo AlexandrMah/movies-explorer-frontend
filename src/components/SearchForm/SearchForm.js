@@ -25,8 +25,8 @@ function SearchForm({ chengeCheckbox, onClickSearch, checked }) {
                 id="name-input" 
                 className="search-form__element search-form__element_key_name" 
                 required 
-                minLength="2" 
-                maxLength="40"                
+                //minLength="2" 
+                // maxLength="40"                
                 // onChange = {evt => setFilmRequest(evt.target.value)}
                 onChange = { handleChange }
               />            
