@@ -57,7 +57,7 @@ function Register({ signIn, navigateToMain, onRegister }) {
               required 
               minLength="2" 
               maxLength="30"              
-              pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+              pattern="^[a-zA-Z0-9+_.\-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,4}$"/*"^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"*/
               // onChange = {evt => setEmail(evt.target.value)}
               onChange = { handleChange }
             />
