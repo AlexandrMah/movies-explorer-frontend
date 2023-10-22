@@ -34,7 +34,6 @@ function SavedMovies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleC
 
   //Фильтрация сохраненных фильмов
   React.useEffect(() => {
-    console.log('q333')
     const result = getListMoviesFilter(cardsMovies, checkedSavedMovies, filterParametrSaveMovie)
     setCardsMoviesFilter(result)
     localStorage.setItem('listMoviesFilter', JSON.stringify(result));

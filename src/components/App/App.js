@@ -183,7 +183,6 @@ function App() {
   //функция фильтрации фильмов
   function getListMoviesFilter( list, checked, filterParametr) { 
     setIsLoading(true)
-    console.log('11111111111')
     const resultMoviesFilter = list.filter((data) => {
       const nameRuEn = `${data.nameRU} || ${data.nameEN}`.toLowerCase();
       return nameRuEn.includes(filterParametr.toLowerCase());

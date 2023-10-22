@@ -31,8 +31,7 @@ function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
   }, [])
   
   //Проверка при перезагрузке странице есть ли в localStorage фильмы и фильтрация, если есть, то информация загружаеься с их учетом
-  React.useEffect(() => {
-    console.log('q111')  
+  React.useEffect(() => {  
     const list = JSON.parse(localStorage.getItem('movies'))
     /*---*/
     if (list.length === 0){
@@ -85,7 +84,6 @@ function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
 
   //Фильтрация фильмов
   React.useEffect(() => {
-    console.log('q222')
     if (!movies){
       return
     }

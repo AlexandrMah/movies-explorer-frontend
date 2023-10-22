@@ -23,6 +23,12 @@ function SearchForm({ chengeCheckbox, onClickSearch, checked }) {
   }, [location])
   /*--------------------------------------------*/
 
+  //Отправка данных при нажатии на чекбокс
+function isChengeCheckbox() {
+  onClickSearch(values.film)
+}
+
+
   return (
       <section className="search-form">
         <form onSubmit = {handleSubmit} action="/apply/" autoComplete="on" method="POST" name="#" className="search-form__form">
@@ -55,6 +61,7 @@ function SearchForm({ chengeCheckbox, onClickSearch, checked }) {
           <FilterCheckbox 
             chengeCheckbox={chengeCheckbox}
             checked={checked}
+            isChengeCheckbox={isChengeCheckbox}
           />
 
         </form>     

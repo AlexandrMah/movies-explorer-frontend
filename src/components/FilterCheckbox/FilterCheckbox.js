@@ -1,9 +1,10 @@
 import React from "react";
 
-function FilterCheckbox({ chengeCheckbox, checked }) {
+function FilterCheckbox({ chengeCheckbox, checked, isChengeCheckbox }) {
 
   function onClickCheckbox(e) {
     chengeCheckbox(e);
+    isChengeCheckbox();
   }
 
   return (
