@@ -6,46 +6,39 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
 function SavedMovies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace, cardsMovies, handleDelMovie, filterStatus, getListMoviesFilter }) {
   //Параметр фильтрации
-  const [filterParametr, setFilterParametr] = React.useState('');
+  const [filterParametrSaveMovie, setFilterParametrSaveMovie] = React.useState('');
   /*--Список сохраненных фильмов--*/
   const [cardsMoviesFilter, setCardsMoviesFilter] = React.useState([]);
 
   //Чекбокс, состояние
-  // const statusCheckbox = localStorage.getItem('checked') === 'on' ? true : false;
-  // const [checked, setChecked] = React.useState(false);
   const [checkedSavedMovies, setCheckedSavedMovies] = React.useState(false);
 
   React.useEffect(() => {
     if (localStorage.getItem('checkedSavedMovies') === null) localStorage.setItem('checkedSavedMovies', 'off');
     if (localStorage.getItem('checkedSavedMovies')) setCheckedSavedMovies(localStorage.getItem('checkedSavedMovies'))
-    // if (localStorage.getItem('checked')) setChecked(localStorage.getItem('checked'))
   }, [])
 
-
-
   function chengeCheckbox(e) {
-    // setChecked(e.target.value);
-    // localStorage.setItem('checked', e.target.value);
     setCheckedSavedMovies(e.target.value);
     localStorage.setItem('checkedSavedMovies', e.target.value);
  }
 
   function onClickSearch(value){
-    setFilterParametr(value) 
+    setFilterParametrSaveMovie(value) 
   }
 
   //Начальное сохранение фильмов
   React.useEffect(() => {
     setCardsMoviesFilter(cardsMovies)
-  }, [cardsMovies])
-  
+  }, [cardsMovies])  
 
   //Фильтрация сохраненных фильмов
   React.useEffect(() => {
-    const result = getListMoviesFilter(cardsMovies, /*checked*/checkedSavedMovies, filterParametr)
+    console.log('q333')
+    const result = getListMoviesFilter(cardsMovies, checkedSavedMovies, filterParametrSaveMovie)
     setCardsMoviesFilter(result)
     localStorage.setItem('listMoviesFilter', JSON.stringify(result));
-  }, [/*checked*/ checkedSavedMovies, filterParametr, cardsMovies, getListMoviesFilter])
+  }, [checkedSavedMovies, filterParametrSaveMovie, cardsMovies,/*getListMoviesFilter*/])
 
   return (
     <>
@@ -61,7 +54,6 @@ function SavedMovies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleC
           <SearchForm 
             chengeCheckbox={chengeCheckbox}
             onClickSearch={onClickSearch}
-            // checked={checked}
             checked={checkedSavedMovies}
           />
           <MoviesCardList 

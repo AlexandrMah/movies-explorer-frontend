@@ -2,8 +2,9 @@ import React from "react";
 import Header from "../Header/Header";
 import { CurrentUserContext } from "./../../contexts/CurrentUserContext";
 import { useFormValidation } from "../../hooks/useFormValidation";
+import InfoTooltip from "./../Popup/Popup";
 
-function Profile({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace, signUserOut, handleUpdateUser }) {
+function Profile({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickAddPlace, signUserOut, handleUpdateUser, changeProfileStatus, isStatusChangeProfilePopupOpen }) {
   const currentUser = React.useContext(CurrentUserContext);
   const {values, errors, isValid, setValues, handleChange, setIsValid} = useFormValidation();
   
@@ -49,6 +50,11 @@ function Profile({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClick
 
   return (
     <>
+      <InfoTooltip 
+        changeProfileStatus={changeProfileStatus}
+        isStatusChangeProfilePopupOpen={isStatusChangeProfilePopupOpen}
+        closePopups={closePopups}
+      />
       <Header 
         navigateToMain={navigateToMain}
         closePopups={closePopups}
@@ -57,6 +63,7 @@ function Profile({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClick
       />
       <main>
         <section className="profile">
+
           <div className="profile__container">
             <h1 className="profile__title">Привет, {currentUser.name}!</h1>
             <form action="/apply/" method="POST" name="#" className="profile__form">

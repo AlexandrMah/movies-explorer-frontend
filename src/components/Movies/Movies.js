@@ -31,16 +31,23 @@ function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
   }, [])
   
   //Проверка при перезагрузке странице есть ли в localStorage фильмы и фильтрация, если есть, то информация загружаеься с их учетом
-  React.useEffect(() => {    
+  React.useEffect(() => {
+    console.log('q111')  
     const list = JSON.parse(localStorage.getItem('movies'))
+    /*---*/
+    if (list.length === 0){
+      return
+    }
+    /*---*/
     if (list && !filterParametr) {
-      const result = getListMoviesFilter(list, checked, localStorage.getItem('filterParametr'))
+      const result = getListMoviesFilter(list, checked, localStorage.getItem('filterParametr'))      
+      // setFilterParametr(localStorage.getItem('filterParametr'))
       setMoviesFilter(result)
       localStorage.setItem('moviesFilter', JSON.stringify(result));
       setCurrentPage(0)
       getInfoMovieSearch (result)
     }
-  }, [checked, filterParametr, getListMoviesFilter])
+  }, [checked, filterParametr/*, getListMoviesFilter*/])
 
   // //Переключение и сохранение состояния чекбокса
   function chengeCheckbox(e) {
@@ -53,6 +60,7 @@ function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
     setFilterStatus(true);
     localStorage.setItem('filterStatus', true);
     setFilterParametr(value)
+    localStorage.setItem('filterParametr', value);
 
     //загрузка фильмов с сайта, если они еще не загружены
     if (!movies.length){
@@ -77,6 +85,7 @@ function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
 
   //Фильтрация фильмов
   React.useEffect(() => {
+    console.log('q222')
     if (!movies){
       return
     }
@@ -88,7 +97,7 @@ function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
       setCurrentPage(0)
       getInfoMovieSearch (result)
     }
-  }, [checked, filterParametr, movies, getListMoviesFilter])
+  }, [checked, filterParametr, movies/*, getListMoviesFilter*/])
   
   //Отображение количесва карточек(screenResolution)
   React.useEffect(() => {
@@ -111,7 +120,7 @@ function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
     }   
     else{
       setCardsCount(5);
-      setColumnCount(1);
+      setColumnCount(2);
     }
   }
 
@@ -128,8 +137,6 @@ function Movies({ navigateToMain, closePopups, isAddPlacePopupOpen, handleClickA
   }
   
   const visibleListMovies = moviesFilter.slice(0, calculateCardsList());
-
-
 
   return (
     <>

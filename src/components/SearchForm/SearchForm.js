@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import button from "./../../images/button.svg";
 import arrowbutton from "./../../images/arrowButton.svg";
 import FilterCheckbox from "./../FilterCheckbox/FilterCheckbox"
 import { useFormValidation } from "../../hooks/useFormValidation";
+import { useLocation } from 'react-router-dom';
 
 function SearchForm({ chengeCheckbox, onClickSearch, checked }) {
+  const location = useLocation();
   const {values, errors, isValid, handleChange } = useFormValidation();
 
   const handleSubmit = (e) => {  
     e.preventDefault();
     onClickSearch(values.film)
   }
+
+  /*----установка значения в поисковую строку при возврате----*/
+  useEffect(() => {
+    if (localStorage.getItem('filterParametr') && location.pathname === '/movies') {
+      // const saveValue = localStorage.getItem('filterParametr');
+      values.film = localStorage.getItem('filterParametr');
+    }
+  }, [location])
+  /*--------------------------------------------*/
 
   return (
       <section className="search-form">

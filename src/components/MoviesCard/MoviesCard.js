@@ -46,7 +46,7 @@ function MoviesCard({ props, handleAddMovie, handleDelMovie, cardsMovies }) {
   }
 
   const handleDelClick = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     handleDelMovie(isSaveMovie);
     setLikeActive(false);
   }
@@ -74,7 +74,7 @@ function MoviesCard({ props, handleAddMovie, handleDelMovie, cardsMovies }) {
           </div>}
           {location.pathname === "/saved-movies" && 
           <div className="element__likes">
-            <button onClick = {handleDelClick} type="submit" className='element__like element__del'/>
+            <button onClick = {handleDelClick} type="button/*submit*/" className='element__like element__del'/>
           </div>}
         </div>
         {<p className="element__time" >{time}</p>}

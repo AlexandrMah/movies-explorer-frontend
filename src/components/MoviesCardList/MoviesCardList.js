@@ -11,7 +11,7 @@ function MoviesCardList({ movies, cardsMovies, handleAddMovie, handleDelMovie, f
       <MoviesCard 
         key = {props._id}
         props = {props}
-        handleAddMovie={handleAddMovie}
+        // handleAddMovie={handleAddMovie}
         handleDelMovie={handleDelMovie}
         cardsMovies={cardsMovies}/*---------------*/
       />
@@ -58,8 +58,6 @@ function MoviesCardList({ movies, cardsMovies, handleAddMovie, handleDelMovie, f
   function getInfiMaxLenMovie(){
     return lengthMovies === movies.length;
   }
-
-
 
   return (
     <div className="cards-movies">

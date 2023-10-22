@@ -31,6 +31,14 @@ function App() {
   //Контроль прелоадера
   const [isLoading, setIsLoading] = React.useState(false);
   /*------------------------------*/
+  //Попуп. Статус ответа при изменении профиля (true - все ок)
+  const [changeProfileStatus, setChangeProfileStatus] = React.useState(false);
+
+  //Попуп статуса ответа изменения профиля
+  const [isStatusChangeProfilePopupOpen, setIsStatusChangeProfilePopupOpen] = React.useState(false);
+  
+  /*--Попуп навигации---*/
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
 
   /*-----*/
   //Подписка на контекст, информация о пользователе
@@ -73,26 +81,7 @@ function App() {
       setLoggedIn(false)
     })
     // }
-  }, [/*location.pathname, navigate*/])
-
-  // const checkToken = () => {
-  //   const jwt = localStorage.getItem("jwt");
-  //   if (jwt === null){
-  //     return
-  //   }
-  //   mainApi.checkToken(jwt)
-  //   .then((data) => {
-  //     if(!data) {
-  //       return
-  //     }
-  //     setLoggedIn(true);
-  //     navigate(location.pathname);
-  //   })
-  //   .catch((err) => {
-  //     console.error(err)
-  //     setLoggedIn(false)
-  //   })
-  // }
+  }, [])
 
   //авторизация пользователя
   const onLogin = (email, password) => {
@@ -109,8 +98,11 @@ function App() {
   //регистрация пользователя
   const onRegister = (name, email, password) => {
     setIsLoading(true)
-    return mainApi.registers(name, email, password).then((res) => {  
-      navigate("/signin");
+    return mainApi.registers(name, email, password).then((res) => { 
+      if (res){
+        onLogin(res.email, name.password);
+      }
+      // navigate("/signin");
       return res;
     }).catch((err) => {
       console.error(err);
@@ -123,9 +115,13 @@ function App() {
     mainApi.editInfoUser({ name: name, email: email })
       .then((info) => {
         setCurrentUser(info)
+        setChangeProfileStatus(true)
+        setIsStatusChangeProfilePopupOpen(true)
       })
       .catch(err => {
         console.log(err)
+        setChangeProfileStatus(false)
+        setIsStatusChangeProfilePopupOpen(true);
       })
   }
 
@@ -155,8 +151,7 @@ function App() {
   }, [isLoggedIn])
 
   //Сохранение фильма
-  function handleAddMovie(data){
-  
+  function handleAddMovie(data){  
     mainApi.getSaveMovie(data)
       .then((infoCard) => {
         setCardsMovies([infoCard, ...cardsMovies])
@@ -168,11 +163,10 @@ function App() {
 
   //Удаление фильма
   function handleDelMovie(data){
-    setIsLoading(true)
     mainApi.deleteMovie(data._id)
       .then((newMovies) => {
         setCardsMovies((state) => state.filter((c) => c._id !== data._id ));
-        setIsLoading(false)
+
       })
       .catch(err => {
         setIsLoading(false)
@@ -189,7 +183,7 @@ function App() {
   //функция фильтрации фильмов
   function getListMoviesFilter( list, checked, filterParametr) { 
     setIsLoading(true)
-
+    console.log('11111111111')
     const resultMoviesFilter = list.filter((data) => {
       const nameRuEn = `${data.nameRU} || ${data.nameEN}`.toLowerCase();
       return nameRuEn.includes(filterParametr.toLowerCase());
@@ -204,9 +198,7 @@ function App() {
     }   
   }  
 
-  /*-----*/
-  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
-
+  /*--Попуп навигации---*/
   function handleClickAddPlace(){
     setIsAddPlacePopupOpen(true);
   }
@@ -226,6 +218,7 @@ function App() {
 
   function closePopups(){
     setIsAddPlacePopupOpen(false);
+    setIsStatusChangeProfilePopupOpen(false)
   }
 
   return (
@@ -281,8 +274,11 @@ function App() {
             isAddPlacePopupOpen={isAddPlacePopupOpen}
             handleClickAddPlace={handleClickAddPlace}
             signUserOut={signUserOut}
-            handleUpdateUser={handleUpdateUser}
             isLoggedIn={isLoggedIn}
+            handleUpdateUser={handleUpdateUser}
+            changeProfileStatus={changeProfileStatus
+            }
+            isStatusChangeProfilePopupOpen={isStatusChangeProfilePopupOpen}
           />} />
 
           <Route path="/signin" element={<Login 

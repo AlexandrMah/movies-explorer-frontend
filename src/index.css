@@ -31,6 +31,8 @@
 @import url(./components/MoviesCard/MoviesCard.css);
 @import url(./components/PopupMenu/PopupMenu.css);
 
+@import url(./components/Popup/Popup.css);
+
 /* * {
   outline: 1px solid red;
   } */

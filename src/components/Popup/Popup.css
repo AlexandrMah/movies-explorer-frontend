@@ -1,0 +1,126 @@
+.popup-response{
+  box-sizing: border-box;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: rgba(0, 0, 0, .5);
+  align-items: center;
+  justify-content: center;
+  padding: 19px;
+  transition: height 0ms 400ms, opacity 400ms 0ms, z-index 2s;
+  opacity: 0;
+  z-index: -1;
+}
+
+.popup-response_opened{
+  opacity: 1;
+  z-index: 3;
+  height: 100%;
+  transition: height 0ms 0ms, opacity 600ms 0ms;
+}
+
+.popup-response__container{
+  display: flex;
+  flex-direction: column;
+  max-width: 430px;
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.popup-response__container_register{
+  padding: 60px 0;
+  align-items: center;
+}
+
+.popup-response__title{
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  max-width: 330px;
+  height: 23px;
+  margin: 34px 36px 0;
+  padding: 0;
+}
+
+.popup-response__title_register{
+  text-align: center;
+  margin: 0;
+  min-height: 60px;
+}
+
+.popup-response__btn{
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  height: 50px;
+  margin: 15px 0 36px;
+  border: none;
+  border-radius: 2px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  transition: opacity 1.5s;
+  cursor: pointer;
+}
+
+.popup-response__btn:hover{
+  opacity: 0.8;
+}
+
+.popup-response__close-btn{
+  position: absolute;
+  background-image: url(./../../images/Close_Icon.svg);
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: none;
+  width: 32px;
+  height: 32px;
+  right: -40px;
+  top: -40px;
+  transition: opacity 1.5s;
+}
+
+.popup-response__close-btn:hover{
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 550px){
+  .popup-response__close-btn{
+    width: 20px;
+    height: 20px;
+    right: 0;
+    top: -36px;
+    background-size: cover;
+  }
+}
+
+@media screen and (max-width: 550px){
+  .popup-response__btn{
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+@media screen and (max-width: 550px){
+  .popup-response__title{
+    font-size: 18px;
+    line-height: 22px;
+    margin: 25px 22px 0;
+  }
+}
+
+@media screen and (max-width: 550px){
+  .popup-response__container{
+    max-width: 282px;
+  }
+}
