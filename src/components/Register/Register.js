@@ -1,20 +1,19 @@
 import React from "react";
 import Logo from "./../Logo/Logo";
-// import { CurrentUserContext } from "./../../contexts/CurrentUserContext";
+import { useFormValidation } from "../../hooks/useFormValidation";
 
-function Register({ signIn, navigateToMain }) {
-  // const [name, setName] = React.useState('Name');
-  // const [email, setEmail] = React.useState('Email');
+function Register({ signIn, navigateToMain, onRegister }) {
 
-   // Подписка на контекст
-  //  const currentUser = React.useContext(CurrentUserContext);
+  //Валидация
+  const { values, errors, isValid, handleChange } = useFormValidation();
 
-  // После загрузки текущего пользователя из API
-  // его данные будут использованы в управляемых компонентах.
-  // React.useEffect(() => {
-  //   setName(currentUser.name);
-  //   setEmail(currentUser.email);
-  // }, [currentUser/*, isOpen*/]);
+  //Отправка данных при регистрации
+  function handleSubmit(e) {
+    e.preventDefault();
+    onRegister({ name: values.name, email: values.email, password: values.password})
+  };
+
+  const buttonRegister = `register__btn ${!isValid && 'register__btn_inactive'}`;
 
   return (
     <main>
@@ -24,13 +23,12 @@ function Register({ signIn, navigateToMain }) {
           navigateToMain={navigateToMain}
         />
         <h1 className="register__title">Добро пожаловать!</h1>
-        <form /*onSubmit = {handleSubmit}*/ action="/apply/" method="POST" name="#" className="register__form">
+        <form onSubmit = {handleSubmit} action="/apply/" method="POST" autoComplete="on" name="#" className="register__form">
           <p className="register__input-name">Имя</p>
           <label className="register__field">            
             <input 
               type="text" 
-              // value="name"/*{name || 'Name'}*/
-              defaultValue="Name"
+              value={values.name || ''}
               placeholder="Имя" 
               name="name" 
               id="name-input" 
@@ -38,9 +36,13 @@ function Register({ signIn, navigateToMain }) {
               required 
               minLength="2" 
               maxLength="40"
+              pattern="[a-zA-Zа-яёА-ЯЁ\s\-]+"
               // onChange = {evt => setName(evt.target.value)}
+              onChange = { handleChange }
             />
-            <span className="profileName-input-error register__input-error"></span>
+            <span className="name-input-error register__input-error">
+              {errors.name ? `Поле должно быть заполнено. Текст должен быть не короче 2 символов. Можно вводить русские и латинские буквы, пробел и дефис` : ''}
+            </span>
           </label>
           
           <p className="register__input-name">E-mail</p>
@@ -48,17 +50,20 @@ function Register({ signIn, navigateToMain }) {
             <input 
               type="email" 
               placeholder="Email" 
-              // value="Email" /*{email || "Email"}*/
-              defaultValue="Email"
+              value={values.email || ""}
               name="email" 
               id="email-input" 
               className="register__element register__element_key_name" 
               required 
               minLength="2" 
-              maxLength="30"
-              /* onChange = {evt => setEmail(evt.target.value)}*/
+              maxLength="30"              
+              pattern="^[a-zA-Z0-9+_.\-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,4}$"/*"^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"*/
+              // onChange = {evt => setEmail(evt.target.value)}
+              onChange = { handleChange }
             />
-            <span className="name-input-error register__input-error"></span>
+            <span className="email-input-error register__input-error">
+              {errors.email || ''}
+            </span>
           </label>
           
           <p className="register__input-name">Пароль</p>
@@ -66,19 +71,21 @@ function Register({ signIn, navigateToMain }) {
             <input 
               type="password" 
               placeholder="Пароль" 
-              // value="12345"/*{password}*/
-              defaultValue="12345"
+              value={values.password || ''}
               name="password" 
               id="password-input" 
               className="register__element register__element_key_img" 
               required
-              // readonly
+              minLength="8"
               // onChange = {evt => setPassword(evt.target.value)}
+              onChange = { handleChange }
             />
-            <span className="url-input-error register__input-error"></span>
+            <span className="password-input-error register__input-error">
+              {errors.password || ''}
+            </span>
           </label>
 
-          <button type="submit" className="register__btn">Зарегистрироваться</button>
+          <button type="submit" className={buttonRegister} disabled={!isValid}>Зарегистрироваться</button>
           <div className="register__input">
             <p className="register__input-title">Уже зарегистрированы?</p>
             <button onClick={signIn} type="button" className="register__btn-input">Войти</button>
